@@ -1,0 +1,9 @@
+.photo {
+    &.circle {
+        img {
+            border-radius: 110px;
+            height: 110px;
+            width: 110px !important;
+        }
+    }
+}

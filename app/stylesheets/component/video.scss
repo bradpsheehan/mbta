@@ -1,0 +1,35 @@
+.video-container {
+    position: relative;
+
+    .play-button {
+        background: $light-gray;
+        background: rgba(0, 0, 0, .3);
+        border-radius: 96px;
+        color: $white;
+        display: inline-block;
+        @include font-size(44);
+        height: 96px;
+        left: 50%;
+        line-height: 96px;
+        margin-left: -43px;
+        margin-top: -43px;
+        padding: 0;
+        position: absolute;
+        text-align: center;
+        text-shadow: none;
+        top: 50%;
+        width: 96px;
+        z-index: 100;
+
+        &:hover {
+            background: $gray;
+            background: rgba(0, 0, 0, .5);
+            @include transform(rotate(10deg));
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .icon {
+            line-height: 80px;
+        }
+    }
+}

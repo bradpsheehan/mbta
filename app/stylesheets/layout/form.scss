@@ -1,0 +1,59 @@
+.form {
+    
+    label {
+        display: inline-block;
+        margin: 0 0 $page-v-rhythm/2;
+    }
+
+    > li {
+        margin: $page-v-rhythm 0 0;
+
+        &:first-child {
+            margin: 0;
+        }
+    }
+
+}
+
+    .password-field {
+
+        .strength-indicator {
+            @include clearfix;
+            margin: $page-v-rhythm/4 0 0;
+
+            li {
+                background: $lighter-gray;
+                float: left;
+                height: 3px;
+                margin: $page-v-rhythm/4 $page-v-rhythm/4 0 0;
+                width: 100px;
+
+                &.label {
+                    background: none;
+                    @include font-size(14);
+                    height: auto;
+                    margin: 0 0 0 10px;
+                    text-align: center;
+                    width: auto;
+                }
+
+            }
+
+            &.weak,
+            &.slightly-weak {
+                .active {
+                    background: $red;
+                }
+            }
+            &.average {
+                .active {
+                    background: $yellow;
+                }
+            }
+            &.strong {
+                .active {
+                    background: $green;
+                }
+            }
+        }
+    }

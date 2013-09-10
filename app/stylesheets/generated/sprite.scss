@@ -1,0 +1,45 @@
+  $checkbox-checked-x: 0px;
+  $checkbox-checked-y: 0px;
+  $checkbox-checked-offset-x: 0px;
+  $checkbox-checked-offset-y: 0px;
+  $checkbox-checked-width: 31px;
+  $checkbox-checked-height: 31px;
+  $checkbox-checked-total-width: 62px;
+  $checkbox-checked-total-height: 31px;
+  $checkbox-checked-image: '../images/sprite.png';
+  $checkbox-checked: 0px 0px 0px 0px 31px 31px 62px 31px '../images/sprite.png';
+  $checkbox-x: 31px;
+  $checkbox-y: 0px;
+  $checkbox-offset-x: -31px;
+  $checkbox-offset-y: 0px;
+  $checkbox-width: 31px;
+  $checkbox-height: 31px;
+  $checkbox-total-width: 62px;
+  $checkbox-total-height: 31px;
+  $checkbox-image: '../images/sprite.png';
+  $checkbox: 31px 0px -31px 0px 31px 31px 62px 31px '../images/sprite.png';
+
+  @mixin sprite-width($sprite) {
+    width: nth($sprite, 5);
+  }
+
+  @mixin sprite-height($sprite) {
+    height: nth($sprite, 6);
+  }
+
+  @mixin sprite-position($sprite) {
+    $sprite-offset-x: nth($sprite, 3);
+    $sprite-offset-y: nth($sprite, 4);
+    background-position: $sprite-offset-x  $sprite-offset-y;
+  }
+
+  @mixin sprite-image($sprite) {
+    background-image: url(nth($sprite, 9));
+  }
+
+  @mixin sprite($sprite) {
+    @include sprite-image($sprite);
+    @include sprite-position($sprite);
+    @include sprite-width($sprite);
+    @include sprite-height($sprite);
+  }

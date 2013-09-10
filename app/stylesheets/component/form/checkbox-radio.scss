@@ -1,0 +1,28 @@
+.checkbox-container {
+    .input-checkbox {
+        display: none;
+        
+        + label {
+            cursor: pointer;
+            padding: 5px 0 0 40px;
+            position: relative;
+
+            &:before {
+                content: " ";
+                @include sprite($checkbox);
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+        }
+
+        &:checked {
+            + label {
+                &:before {
+                    @include sprite($checkbox-checked);
+                }
+            }
+        }
+    }
+}

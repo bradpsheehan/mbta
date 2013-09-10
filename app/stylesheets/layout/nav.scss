@@ -1,0 +1,147 @@
+.global-navigation {
+    @include clearfix;
+    padding: $page-v-rhythm 0;
+
+    .language-nav,
+    .portal-nav {
+        float: right;
+    }
+
+    .portal-nav {
+        margin: 0 0 0 30px;
+
+        .button {
+            margin: 0 0 0 20px;
+        }
+    }
+
+    .language-nav {
+        display: table-cell;
+        height: 42px;
+        padding: 5px;
+        vertical-align: middle;
+    }
+}
+
+.main-navigation {
+    background: $gray;
+    padding: 20px 0 23px;
+    position: relative;
+    min-width: $page-width;
+
+    &.sticky {
+        position: fixed;
+        text-align: center;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+
+        ul {
+            float: none;
+            @include transition(all 0.3s linear);
+
+            li {
+                text-align: center;
+            }
+        }
+
+        .logo {
+            @include opacity(1);
+            left: 20px;
+        }
+
+        .button {
+            @include opacity(1);
+            top: -10px;
+        }
+    }
+
+    &.subpage-header {
+        padding: 15px 0;
+
+        ul {
+            float: none;
+            margin: 0 $page-padding*10;
+            vertical-align: middle;
+            width: 560px;
+
+            li {
+                text-align: center;
+
+                a {
+                    display: inline-block;
+                    padding: 15px 0;
+                }
+            }
+        }
+        .logo {
+            left: 0;
+            @include opacity(1);
+            top: 0;
+        }
+        .portal-nav {
+            color: $white;
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 5px;
+
+            .button {
+                margin: 0 0 0 $page-padding;
+                @include opacity(1);
+                position: relative;
+                right: auto;
+                top: auto;
+            }
+        }
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .logo {
+        position: absolute;
+        left: -100px;
+        @include opacity(0);
+        top: -5px;
+        @include transition(all 0.3s linear);
+    }
+
+    .button {
+        @include opacity(0);
+        position: absolute;
+        right: 20px;
+        top: -100px;
+        @include transition(all 0.3s linear);
+    }
+
+    ul {
+        display: inline-block;
+        @include clearfix;
+        width: 610px;
+    }
+
+    li {
+        float: left;
+        text-align: left;
+        @include transition(all 0.3s linear);
+        width: 25%;
+
+        a {
+            color: $light-cement;
+            border-bottom: 2px solid $gray;
+            padding: 0 0 1px;
+        }
+
+        &.flex-active {
+            
+            a {
+                border-bottom: 2px solid $blue;
+                color: $white;
+                font-weight: 600;
+            }
+
+        }
+    }
+}
