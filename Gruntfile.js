@@ -10,6 +10,7 @@ module.exports = function (grunt) {
       icons = 'app/svg/*.svg';
 
   javascripts = [
+    '!app/javascripts/libs/**/*.js',
     'app/javascripts/vendor/**/*.js',
     'app/javascripts/modules/**/*.js',
     'app/javascripts/app.js'
@@ -65,7 +66,7 @@ module.exports = function (grunt) {
           quiet: true
         },
         files: {
-          'public/stylesheets/styles.css': stylesheets
+          'public/stylesheets/styles.min.css': stylesheets
         }
       }
     },
@@ -98,7 +99,7 @@ module.exports = function (grunt) {
     webfont: {
       icons: {
         src: icons,
-        dest: 'public/fonts',
+        dest: 'app/fonts',
         destCss: 'app/stylesheets/generated/',
         options: {
           htmlDemo: false,
@@ -123,6 +124,36 @@ module.exports = function (grunt) {
             'dest': 'public/'
           }
         ]
+      },
+      javascripts: {
+        files: [
+          {
+            expand: true,
+            cwd: 'app/javascripts/libs',
+            src: ['**/*.js'],
+            dest: 'public/javascripts/libs'
+          }
+        ]
+      },
+      fonts: {
+        files: [
+          {
+            expand: true,
+            cwd: 'app/fonts',
+            src: ['**/*'],
+            dest: 'public/fonts/'
+          }
+        ]
+      },
+      images: {
+        files: [
+          {
+            expand: true,
+            cwd: 'app/images',
+            src: ['**/*'],
+            dest: 'public/images/'
+          }
+        ]
       }
     },
 
@@ -144,6 +175,10 @@ module.exports = function (grunt) {
         ],
         spawn: true
       },
+      libs: {
+        files: 'app/javascripts/libs/**/*.js',
+        tasks: 'copy:javascripts'
+      },
       sass: {
         files: 'app/stylesheets/**/*{.scss, .sass}',
         tasks: ['sass'],
@@ -151,12 +186,12 @@ module.exports = function (grunt) {
       },
       webfont: {
         files: icons,
-        tasks: 'webfont'
+        tasks: ['webfont', 'copy:fonts']
       },
       images: {
         files: images,
         tasks: [
-          'smushit'
+          'smushit', 'copy:images'
         ]
       },
       sprites: {
