@@ -9,7 +9,7 @@
 
             &:before {
                 content: " ";
-                @include sprite($checkbox);
+                // @include sprite($checkbox);
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -20,7 +20,7 @@
         &:checked {
             + label {
                 &:before {
-                    @include sprite($checkbox-checked);
+                    // @include sprite($checkbox-checked);
                 }
             }
         }

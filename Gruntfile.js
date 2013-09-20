@@ -2,7 +2,7 @@ module.exports = function (grunt) {
   var javascripts = [],
       stylesheets = 'app/stylesheets/styles.scss',
       images = [
-        '!app/images/sprites/*',
+        '!app/images/sprites/*.png',
         'app/images/**/*.png',
         'app/images/**/*.jpg',
         'app/images/**/*.gif'
@@ -55,18 +55,18 @@ module.exports = function (grunt) {
           lineNumbers: true,
           style: 'expanded'
         },
-        files: [
+        files: {
           'public/stylesheets/styles.css': stylesheets
-        ]
+        }
       },
       dist: {
         options: {
           style: 'compressed',
           quiet: true
         },
-        files: [
+        files: {
           'public/stylesheets/styles.css': stylesheets
-        ]
+        }
       }
     },
 
@@ -77,7 +77,7 @@ module.exports = function (grunt) {
     smushit: {
       dev: {
         src: images,
-        dest: 'public/images'
+        dest: 'public/images/'
       }
     },
 
