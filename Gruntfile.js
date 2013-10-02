@@ -2,10 +2,8 @@ module.exports = function (grunt) {
   var javascripts = [],
       stylesheets = 'app/stylesheets/styles.scss',
       images = [
-        '!app/images/sprites/*.png',
-        'app/images/**/*.png',
-        'app/images/**/*.jpg',
-        'app/images/**/*.gif'
+        'app/images/graphics/*{.png, .jpg, .gif}',
+        'app/images/photography/*{.png, .jpg, .gif}'
       ],
       icons = 'app/svg/*.svg';
 
@@ -154,6 +152,16 @@ module.exports = function (grunt) {
             dest: 'public/images/'
           }
         ]
+      },
+      styles: {
+        files: [
+          {
+            expand: true,
+            cwd: 'app/stylesheets',
+            src: ['legacy.css'],
+            dest: 'public/stylesheets'
+          }
+        ]
       }
     },
 
@@ -191,12 +199,16 @@ module.exports = function (grunt) {
       images: {
         files: images,
         tasks: [
-          'smushit', 'copy:images'
+          'smushit'
         ]
       },
       sprites: {
         files: 'app/images/sprites/*.png',
         tasks: ['sprite']
+      },
+      legacyStyles: {
+        files: 'app/stylesheets/legacy.css',
+        tasks: ['copy:styles']
       },
       jekyll: {
         files: [
