@@ -5,7 +5,7 @@
 ## General
 
 - For development files, please see `app/`.
-- For production files, please see `public/`.
+- For production files, please see `public/`. Do not add or edit any files in the "public" folder. They will automatically get overwritten when running grunt. Make all changes in the "app" folder.
 
 ## CSS / Scss
 
