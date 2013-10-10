@@ -2,9 +2,9 @@
 
 @import "vendor/bourbon/_bourbon";
 @import "vendor/neat/_neat";
-@import "vendor/_flexslider";
-@import "generated/_icons";
-@import "generated/sprite";
+// @import "vendor/_flexslider";
+// @import "generated/_icons";
+// @import "generated/sprite";
 
 @import "base/reset";
 @import "base/variables";
@@ -15,7 +15,6 @@
 
 @import "component/button";
 @import "component/form/checkbox-radio";
-@import "component/flexslider";
 @import "component/form/input";
 @import "component/photo";
 @import "component/quote";

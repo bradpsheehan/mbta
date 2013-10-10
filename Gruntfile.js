@@ -2,16 +2,15 @@ module.exports = function (grunt) {
   var javascripts = [],
       stylesheets = 'app/stylesheets/styles.scss',
       images = [
-        'app/images/graphics/*{.png, .jpg, .gif}',
-        'app/images/photography/*{.png, .jpg, .gif}'
+        'app/images/graphics/**/*{.png, .jpg, .gif}',
+        'app/images/photography/**/*{.png, .jpg, .gif}'
       ],
       icons = 'app/svg/*.svg';
 
   javascripts = [
-    '!app/javascripts/libs/**/*.js',
     'app/javascripts/vendor/**/*.js',
-    'app/javascripts/modules/**/*.js',
-    'app/javascripts/app.js'
+    'app/javascripts/**/*.js',
+    '!app/javascripts/libs/**/*.js'
   ];
   grunt.initConfig({
 
@@ -74,19 +73,23 @@ module.exports = function (grunt) {
     // ---------------------------------------------
 
     smushit: {
-      dev: {
-        src: images,
-        dest: 'public/images/'
+      graphics: {
+        src: 'app/images/graphics/',
+        dest: 'public/images/graphics'
+      },
+      photography: {
+        src: 'app/images/photography/',
+        dest: 'public/images/photography'
       }
     },
 
     sprite: {
       all: {
         algorithm: 'left-right',
-        src: 'app/images/sprites/*.png',
-        destImg: 'public/images/sprite.png',
+        src: 'app/images/sprites-dev/*.png',
+        destImg: 'app/images/graphics/sprite.png',
         destCSS: 'app/stylesheets/generated/sprite.scss',
-        imgPath: '../images/sprite.png'
+        imgPath: '../images/graphics/sprite.png'
       }
     },
 
@@ -203,7 +206,7 @@ module.exports = function (grunt) {
         ]
       },
       sprites: {
-        files: 'app/images/sprites/*.png',
+        files: 'app/images/sprites-dev/*.png',
         tasks: ['sprite']
       },
       legacyStyles: {
