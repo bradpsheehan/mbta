@@ -170,9 +170,11 @@ module.exports = function (grunt) {
 
 
     jekyll: {
-      dev: {
-        src: 'app/jekyll',
-        dest: 'app/jekyll/_site'
+      dist: {
+        options: {
+          src: 'app/jekyll',
+          dest: 'app/jekyll/_site'
+        }
       }
     },
 

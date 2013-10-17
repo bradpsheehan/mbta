@@ -15,7 +15,9 @@
 }
 
 .hidden {
-    display: none;
+    top: -9999px;
+    left: -9999px;
+    position: absolute;
 }
 
 .invisible {

@@ -1,6 +1,6 @@
 .checkbox-container {
     .input-checkbox {
-        display: none;
+        @extend .hidden;
         
         + label {
             cursor: pointer;
@@ -9,7 +9,6 @@
 
             &:before {
                 content: " ";
-                // @include sprite($checkbox);
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -20,7 +19,7 @@
         &:checked {
             + label {
                 &:before {
-                    // @include sprite($checkbox-checked);
+
                 }
             }
         }
