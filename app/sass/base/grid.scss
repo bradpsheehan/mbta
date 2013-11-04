@@ -1,7 +1,8 @@
 // Grid Containers
+// ---------------------------------------
 .container,
 .row {
-  @include clearfix;
+  @extend %clearfix;
 }
 
 .container {
@@ -17,15 +18,13 @@
   }
 }
 
-
 // Grid
 // ---------------------------------------
 $grid-columns: 12;
 
 @for $i from 1 through ($grid-columns) {
-  // $grid-classes: join($grid-classes, unquote(".span-#{$i}"), comma);
   .span#{$i} {
-    @include clearfix;
+    @extend %clearfix;
     @include span-columns($i);
   }
 }
@@ -36,14 +35,14 @@ $grid-columns: 12;
     display: table;
 
     .cell {
-      display: table-cell;
+      @extend %cell;
     }
 }
 
 @for $i from 1 through ($grid-columns) {
     .cell-span#{$i} {
-        @include clearfix;
-        @include span-columns($i, table);
-        vertical-align: top;
+        @extend %cell;
+        @extend %clearfix;
+        width: $i/$grid-columns * 100%;
     }
 }

@@ -1,0 +1,21 @@
+/* TEAM
+------------------------------- */
+
+    Name:
+    Title:
+    Site: 
+    Twitter:
+    Location:
+
+
+/* THANKS
+------------------------------- */
+
+
+/* SITE
+------------------------------- */
+
+    Last Update: YYYY/MM/DD
+    Standards: HTML5, CSS3, JavaScript
+    Components: Modernizr, jQuery
+    Plugins:

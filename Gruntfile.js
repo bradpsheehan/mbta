@@ -1,6 +1,6 @@
 module.exports = function (grunt) {
   var javascripts = [],
-      stylesheets = 'app/stylesheets/styles.scss',
+      stylesheets = 'app/sass/styles.scss',
       images = [
         'app/images/graphics/**/*{.png, .jpg, .gif}',
         'app/images/photography/**/*{.png, .jpg, .gif}'
@@ -29,7 +29,7 @@ module.exports = function (grunt) {
     },
 
     jshint: {
-      dev: [javascripts, '!app/javascripts/vendor/**/*.js']
+      dev: ['Gruntfile.js', javascripts, '!app/javascripts/vendor/**/*.js']
     },
 
     uglify: {
@@ -88,7 +88,7 @@ module.exports = function (grunt) {
         algorithm: 'left-right',
         src: 'app/images/sprites-dev/*.png',
         destImg: 'app/images/graphics/sprite.png',
-        destCSS: 'app/stylesheets/generated/sprite.scss',
+        destCSS: 'app/sass/generated/sprite.scss',
         imgPath: '../images/graphics/sprite.png'
       }
     },
@@ -100,8 +100,8 @@ module.exports = function (grunt) {
     webfont: {
       icons: {
         src: icons,
-        dest: 'app/fonts',
-        destCss: 'app/stylesheets/generated/',
+        dest: 'public/fonts',
+        destCss: 'app/sass/generated/',
         options: {
           htmlDemo: false,
           relativeFontPath: '../fonts/',
@@ -136,16 +136,6 @@ module.exports = function (grunt) {
           }
         ]
       },
-      fonts: {
-        files: [
-          {
-            expand: true,
-            cwd: 'app/fonts',
-            src: ['**/*'],
-            dest: 'public/fonts/'
-          }
-        ]
-      },
       images: {
         files: [
           {
@@ -160,7 +150,7 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: 'app/stylesheets',
+            cwd: 'app/sass',
             src: ['legacy.css'],
             dest: 'public/stylesheets'
           }
@@ -193,7 +183,7 @@ module.exports = function (grunt) {
         tasks: 'copy:javascripts'
       },
       sass: {
-        files: 'app/stylesheets/**/*{.scss, .sass}',
+        files: 'app/sass/**/*{.scss, .sass}',
         tasks: ['sass'],
         spawn: true
       },
@@ -212,7 +202,7 @@ module.exports = function (grunt) {
         tasks: ['sprite']
       },
       legacyStyles: {
-        files: 'app/stylesheets/legacy.css',
+        files: 'app/sass/legacy.css',
         tasks: ['copy:styles']
       },
       jekyll: {
