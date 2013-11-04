@@ -135,27 +135,27 @@ module.exports = function (grunt) {
             dest: 'public/javascripts/libs'
           }
         ]
-      },
-      images: {
-        files: [
-          {
-            expand: true,
-            cwd: 'app/images',
-            src: ['**/*'],
-            dest: 'public/images/'
-          }
-        ]
-      },
-      styles: {
-        files: [
-          {
-            expand: true,
-            cwd: 'app/sass',
-            src: ['legacy.css'],
-            dest: 'public/stylesheets'
-          }
-        ]
       }
+      // images: {
+      //   files: [
+      //     {
+      //       expand: true,
+      //       cwd: 'app/images',
+      //       src: ['**/*'],
+      //       dest: 'public/images/'
+      //     }
+      //   ]
+      // },
+      // styles: {
+      //   files: [
+      //     {
+      //       expand: true,
+      //       cwd: 'app/sass',
+      //       src: ['legacy.css'],
+      //       dest: 'public/stylesheets'
+      //     }
+      //   ]
+      // }
     },
 
 
@@ -234,9 +234,10 @@ module.exports = function (grunt) {
   grunt.registerTask('dev', [
     'jshint',
     'concat',
-    'sass:dev',
+    'uglify',
+    'sass',
     'jekyll',
-    'copy:jekyll'
+    'copy'
   ]);
 
   grunt.registerTask('dist', [
