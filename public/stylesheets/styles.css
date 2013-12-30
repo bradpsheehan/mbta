@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* line 2, ../../app/sass/vendor/neat/grid/_grid.scss */
 * {
   -webkit-box-sizing: border-box;
@@ -443,4 +442,41 @@ body {
 /* line 8, ../../app/sass/layout/global.scss */
 img {
   max-width: 100%;
+}
+
+/* line 1, ../../app/sass/layout/content.scss */
+.main-content {
+  padding-top: 5%;
+  max-width: 100%;
+}
+
+/* line 5, ../../app/sass/layout/content.scss */
+.trans-mode {
+  height: auto;
+  margin: 0px 0 8px 0;
+  background: whitesmoke;
+  cursor: pointer;
+  /*&:nth-child(odd) {
+  	margin-right: 15px;
+  }*/
+}
+/* line 11, ../../app/sass/layout/content.scss */
+.trans-mode h3 {
+  text-align: center;
+  margin-top: 0;
+}
+
+/* line 21, ../../app/sass/layout/content.scss */
+#subway-icon, #bus-icon, #rail-icon, #boat-icon, .icon {
+  height: 100px;
+  width: 100%;
+  display: inline;
+  margin: 0 auto;
+  padding: 2%;
+  cursor: pointer;
+}
+
+/* line 31, ../../app/sass/layout/content.scss */
+.trans-mode:hover .positive-space, #subway-icon:hover .positive-space, #bus-icon:hover .positive-space, #rail-icon:hover .positive-space, #boat-icon:hover .positive-space {
+  fill: red;
 }
